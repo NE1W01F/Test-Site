@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+ <html>
+     <head>
+        <title>Wolfs Space</title>
+        <script lang="text/javascript">
+            function Start_Info(){
+                // Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:74.0) Gecko/20100101 Firefox/74.0
+                var ua = navigator.userAgent;
+                console.log(window.btoa(ua));
+                var req = new XMLHttpRequest();
+                req.open('GET', 'http://myknot.co.uk/sha1=' + window.btoa(ua));
+                req.responseType = "json";
+                req.onload = function(){
+                    var data = req.response;
+                    if(data['Hash'] != 'df57b1b6ad2d3086cbf01b6b827aa50e9ab473e7'){
+                        window.location.href = "http://google.com";
+                    }
+                }
+                req.send();
+            }
+        </script>
+     </head>
+     <body onload="Start_Info()">
+        <h1 style="text-align: center;">Wolfs Space</h1>
+        <div id="box_about">
+            <h3>What is Wolfs Space?</h3>
+            <p>We are a testing service for Wolf Ltd, So this site is a place that we can test new products before they are released.
+               So everything on this site hasnt been releasted yet to the main site.
+            </p>
+        </div>
+        <div id="box_about_me">
+            <h3>Who am i?</h3>
+            <p>
+                I am Alex the lead developer at Wolf Ltd. 
+                I have worked on many projects and have experance in my field. 
+                if your intrested in hirring me contact me at admin@wolfltd.co.uk
+            </p>
+        </div>
+     </body>
+ </html>
