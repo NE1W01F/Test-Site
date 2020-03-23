@@ -24,18 +24,19 @@ def SHA512(value):
 
 @app.route('/download/platform=<value>', methods=['GET'])
 def Download_File(value):
-    if value == "win":
-        return send_file(open('/root/payload.exe', 'rb'))
-    #elif value == "liunx":
-        #return send_file(open('/root/payload', 'r'))
-    else:
-        return jsonify({'Platform Not Found': 404})
+    try:
+        if value == "win":
+            return send_file(open('/root/payload.exe', 'r'))
+        else:
+            return jsonify({'Platform Not Found': 404})
+    except:
+        return jsonify({'ERROR': 502})
 
 @app.route('/updates/version=<value>', methods=['GET'])
 def Check_API(value):
     if int(value) > 1.0:
         return jsonify({'update_url': ''})
     else:
-        return jsonify{'update_url': 'update'} 
+        return jsonify({'update_url': 'update'}) 
 
 app.run(debug=True, port=80, host='0.0.0.0')
